@@ -1,0 +1,32 @@
+{
+  "name": "sequelize-loader",
+  "version": "1.0.0",
+  "description": "Loader for the sequelize model and module",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meme-ppm/sequelize-loader.git"
+  },
+  "keywords": [
+    "sequelize",
+    "blog",
+    "article"
+  ],
+  "author": "mémé",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/meme-ppm/sequelize-loader/issues"
+  },
+  "homepage": "https://github.com/meme-ppm/sequelize-loader#readme",
+  "dependencies": {
+    "sequelize": "^3.23.3",
+    "pg": "^5.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "sequelize-user": "^1.0.2"
+  }
+}
