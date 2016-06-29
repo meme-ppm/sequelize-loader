@@ -1,8 +1,8 @@
 var Sequelize = require('sequelize');
 
 module.exports = {
-  name:'Article',
-  tableName:'article',
+  name:'Comment',
+  tableName:'comment',
   model:{description:{type: Sequelize.STRING}},
   methods:{
     classMethods:{
@@ -10,7 +10,7 @@ module.exports = {
         return 1;
       },
       defineRelations: function(daos){
-        this.hasMany(daos.Comment);
+        this.belongsTo(daos.Article);
       }
     }
   }
