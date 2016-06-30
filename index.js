@@ -5,11 +5,13 @@ var path = require('path');
 
 var _daos = {};
 var _db = null;
+var _modules = {};
 
 module.exports.daos = _daos;
 
 module.exports.db = _db;
 
+module.exports.module = _modules;
 
 module.exports.initDb = function(dbConfig){
   _db = new Sequelize(dbConfig);
@@ -24,10 +26,22 @@ module.exports.loadModel = function(modelPath){
     if(!'tableName' in model){
       model.tableName = file.parse().name;
     }
+    var defineModel = true;
     if('module' in model){
       var module = require(model.module);
-      _daos[model.name] = module.define(_db);
-    }else{
+      if('model' in module){
+        model.model = Sequelize.Utils._.merge(module.model, model.model);
+      }
+      if('methods' in module){
+        model.methods = Sequelize.Utils._.merge(module.methods, model.model);
+      }
+      if('define' in module){
+        _daos[model.name] = module.define(_db, model);
+        defineModel = false;
+      }
+      _modules[model.name] = module;
+    }
+    if(defineModel){
       _daos[model.name] = _db.define(model.tableName, model.model, model.methods);
     }
   });
