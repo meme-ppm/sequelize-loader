@@ -27,6 +27,6 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "sequelize-user": "^1.0.2"
+    "sequelize-user": "^1.0.3"
   }
 }

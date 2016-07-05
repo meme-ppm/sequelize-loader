@@ -33,7 +33,7 @@ module.exports.loadModel = function(modelPath){
         model.model = Sequelize.Utils._.merge(module.model, model.model);
       }
       if('methods' in module){
-        model.methods = Sequelize.Utils._.merge(module.methods, model.model);
+        model.methods = Sequelize.Utils._.merge(module.methods, model.methods);
       }
       if('define' in module){
         _daos[model.name] = module.define(_db, model);
